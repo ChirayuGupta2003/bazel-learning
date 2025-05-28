@@ -1,5 +1,9 @@
-.cache/
-.vscode/
+.cache
+.vscode
 compile_commands.json
 *.lock
 external
+bazel-bazel-learning
+bazel-bin
+bazel-out
+bazel-testlogs

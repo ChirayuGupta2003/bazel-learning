@@ -5,7 +5,7 @@
 
 void print_int(void *data) { printf("%d", *(int *)data); }
 
-void no_op(void *data) {}
+void no_op(void *data) { return; }
 
 int main(int argc, char *argv[]) {
 
@@ -64,11 +64,6 @@ int main(int argc, char *argv[]) {
     printf("\n");
     printf("\n");
 
-    // int *val = (int *)dll_get_element_at_index(list, idx);
-
-    // printf("Element at index %zu is %d\n", idx, *val);
-    // printf("\n");
-
     printf("Deleted at beginning is %d\n",
            *(int *)dll_delete_at_beginning(list));
     dll_display(list, print_int);
@@ -87,11 +82,6 @@ int main(int argc, char *argv[]) {
     print_int(list->tail->data);
     printf("\n");
     printf("\n");
-
-    // printf("Deleted at index %zu is %d\n", idx,
-    //        *(int *)dll_delete_at_index(list, idx));
-    // dll_display(list, print_int);
-    // printf("\n");
 
     dll_free(list, no_op);
 
