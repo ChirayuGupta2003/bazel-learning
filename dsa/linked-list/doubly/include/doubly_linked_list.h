@@ -4,7 +4,7 @@
 #include "doubly_linked_list_node.h"
 #include <stddef.h>
 
-typedef struct {
+typedef struct d_linked_list {
     DLLNode *head;
     DLLNode *tail;
     size_t len;

@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct {
+typedef struct s_linked_list {
     SLLNode *head;
     size_t len;
 } SLinkedList;

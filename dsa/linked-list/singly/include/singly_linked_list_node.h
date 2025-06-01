@@ -4,9 +4,9 @@
 #ifndef __SINGLY_LINKED_LIST_NODE_H__
 #define __SINGLY_LINKED_LIST_NODE_H__
 
-typedef struct sll_node {
+typedef struct s_ll_node {
     void *data;
-    struct sll_node *next;
+    struct s_ll_node *next;
 } SLLNode;
 
 SLLNode *sll_node_create(void *);
