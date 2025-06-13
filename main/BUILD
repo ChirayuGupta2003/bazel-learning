@@ -4,5 +4,6 @@ cc_binary(
     deps = [
         "//dsa/linked-list/singly",
         "//dsa/linked-list/doubly",
+        "//dsa/stack",
     ],
 )

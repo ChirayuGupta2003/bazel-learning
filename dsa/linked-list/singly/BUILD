@@ -3,5 +3,8 @@ cc_library(
     srcs = glob(["src/*.c"]),
     hdrs = glob(["include/*.h"]),
     includes = ["include"],
-    visibility = ["//main:__pkg__"],
+    visibility = [
+        "//main:__pkg__",
+        "//dsa/stack:__pkg__",
+    ],
 )
