@@ -167,17 +167,36 @@ void sll_free(SLinkedList *list, void (*free_data)(void *data)) {
     free(list);
 }
 
-void sll_display(SLinkedList *list) {
-    SLLNode *ptr = list->head;
+void sll_display(SLinkedList *list, void (*print_data)(void *)) {
+    if (!list || !print_data)
+        return;
 
-    while (ptr) {
-        printf("%d ", *(int *)ptr->data);
-        ptr = ptr->next;
+    SLLNode *curr = list->head;
 
-        if (ptr) {
-            printf("-> ");
+    while (curr) {
+        print_data(curr->data);
+
+        if (curr->next) {
+            printf(" -> ");
         }
+
+        curr = curr->next;
     }
 
     printf("\n");
+}
+
+void **sll_to_array(SLinkedList *list) {
+    void **arr = malloc(sizeof(void *) * list->len);
+    if (!arr)
+        return NULL;
+
+    SLLNode *curr = list->head;
+
+    for (size_t i = 0; i < list->len; i++) {
+        arr[i] = curr->data;
+        curr = curr->next;
+    }
+
+    return arr;
 }

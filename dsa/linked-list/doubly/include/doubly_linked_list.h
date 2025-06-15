@@ -30,4 +30,6 @@ void dll_free(DLinkedList *list, void (*free_data)(void *data));
 
 void dll_display(DLinkedList *list, void (*print_data)(void *data));
 
+void **dll_to_array(DLinkedList *list);
+
 #endif

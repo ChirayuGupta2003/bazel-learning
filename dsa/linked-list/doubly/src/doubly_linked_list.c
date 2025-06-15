@@ -251,3 +251,18 @@ void dll_free(DLinkedList *list, void (*free_data)(void *data)) {
 
     free(list);
 }
+
+void **dll_to_array(DLinkedList *list) {
+    void **arr = malloc(sizeof(void *) * list->len);
+    if (!arr)
+        return NULL;
+
+    DLLNode *curr = list->head;
+
+    for (size_t i = 0; i < list->len; i++) {
+        arr[i] = curr->data;
+        curr = curr->next;
+    }
+
+    return arr;
+}

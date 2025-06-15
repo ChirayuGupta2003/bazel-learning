@@ -28,6 +28,8 @@ void *sll_delete_at_index(SLinkedList *list, size_t idx);
 
 void sll_free(SLinkedList *list, void (*free_data)(void *data));
 
-void sll_display(SLinkedList *list);
+void sll_display(SLinkedList *list, void (*print_data)(void *data));
+
+void **sll_to_array(SLinkedList *list);
 
 #endif

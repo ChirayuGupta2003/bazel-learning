@@ -2,8 +2,6 @@
 #include "singly_linked_list.h"
 #include <stdlib.h>
 
-typedef SLinkedList stack;
-
 Stack *stack_create() {
     Stack *s = (Stack *)sll_create();
     return s;
@@ -21,5 +19,14 @@ void *stack_pop(Stack *s) { return sll_delete_at_beginning((SLinkedList *)s); }
 
 void stack_show(Stack *s) {
     SLinkedList *list = (SLinkedList *)s;
-    sll_display(list);
+
+    int **arr = (int **)sll_to_array(list);
+
+    for (size_t i = 0; i < list->len; i++) {
+        printf("%lu: %d\n", i, *arr[i]);
+    }
+}
+
+void stack_free(Stack *s, void (*free_data)(void *)) {
+    sll_free((SLinkedList *)s, free_data);
 }
